@@ -1,7 +1,6 @@
-import "./App.css";
+import "./css/App.css";
 import LoginButton from "./components/LoginBtn";
 import LogoutButton from "./components/LogoutBtn";
-import Profile from "./components/Profile";
 
 function App() {
   return (
