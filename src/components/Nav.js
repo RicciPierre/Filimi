@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import filimi_avatar from "../img/filimi_avatar.png";
+import filimi_banner from "../img/filimi_banner.png";
+import "../css/Nav.css";
+import LoginButton from "./LoginBtn";
 
-const LoginButton = () => {
-  const { loginWithRedirect } = useAuth0();
-
+const Nav = () => {
   const [show, handleShow] = useState(false);
 
   const transitionNavBar = () => {
@@ -21,14 +20,13 @@ const LoginButton = () => {
   }, []);
 
   return (
-    <a onClick={() => loginWithRedirect()}>
-      <img
-        className={`nav_avatar ${show && "nav_avatar_bg"}`}
-        src={filimi_avatar}
-        alt="nav_avatar"
-      />
-    </a>
+    <div className={`nav ${show && "nav_black"}`}>
+      <div className="nav_content">
+        <img className="nav_logo" src={filimi_banner} alt="nav_logo" />
+        <LoginButton />
+      </div>
+    </div>
   );
 };
 
-export default LoginButton;
+export default Nav;
