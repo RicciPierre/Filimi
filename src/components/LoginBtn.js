@@ -21,13 +21,12 @@ const LoginButton = () => {
   }, []);
 
   return (
-    <a onClick={() => loginWithRedirect()}>
-      <img
-        className={`nav_avatar ${show && "nav_avatar_bg"}`}
-        src={filimi_avatar}
-        alt="nav_avatar"
-      />
-    </a>
+    <img
+      className={`nav_avatar ${show && "nav_avatar_bg"}`}
+      src={filimi_avatar}
+      alt="nav_avatar"
+      onClick={() => loginWithRedirect()}
+    />
   );
 };
 
