@@ -1,30 +1,57 @@
-import React from "react";
+import axios from "./axios";
+import React, { useEffect, useState } from "react";
 import "../css/Banner.css";
+import requests from "./Requests";
 
 function Banner() {
+  const [movie, setMovie] = useState([]);
+
+  function truncate(string, n) {
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchNetflixOriginals);
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+      return request;
+    }
+    fetchData();
+  }, []);
+
+  console.log(movie);
+
   return (
     <header
       className="banner"
       style={{
+        paddingTop: "10rem",
         backgroundSize: "cover",
-        backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAACuCAMAAAClZfCTAAAAA1BMVEUAAACnej3aAAAASElEQVR4nO3BMQEAAADCoPVPbQhfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeA8XKAAFZcBBuAAAAAElFTkSuQmCC")`,
+        height: "100%",
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
     >
       <div className="banner_content">
-        <h1 className="banner_title">Movie Name</h1>
-        <div class="banner_btns">
-          <button className="banner_btn">Play</button>
-          <button className="banner_btn">My list</button>
+        <h1 className="banner_title">
+          {movie?.title || movie?.name || movie?.original_name}
+        </h1>
+        <div className="banner_btns">
+          <button className="banner_btn" id="banner_btn_play">
+            Play
+          </button>
+          <button className="banner_btn" id="banner_btn_list">
+            My list
+          </button>
         </div>
-        <p class="banner_description">
-          Grinch lives in solitude just outside Whoville. He hates the townsfolk
-          and despises Christmas. Cindy Lou, a six-year-old girl who believes in
-          the spirit of the festival, sets out to reform him.
-        </p>
+        <p className="banner_description">{truncate(movie?.overview, 150)}</p>
       </div>
 
-      <div class="banner_fade" />
+      <div className="banner_fade" />
     </header>
   );
 }

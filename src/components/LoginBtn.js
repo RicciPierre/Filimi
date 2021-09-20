@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 import filimi_avatar from "../img/filimi_avatar.png";
+// import url from "./axios";
 
 const LoginButton = () => {
-  const { loginWithRedirect } = useAuth0();
-
   const [show, handleShow] = useState(false);
 
   const transitionNavBar = () => {
@@ -21,12 +19,13 @@ const LoginButton = () => {
   }, []);
 
   return (
+    // <a href={url}>
     <img
       className={`nav_avatar ${show && "nav_avatar_bg"}`}
       src={filimi_avatar}
       alt="nav_avatar"
-      onClick={() => loginWithRedirect()}
     />
+    // </a>
   );
 };
 
