@@ -18,6 +18,38 @@
       object-fit: contain;
       cursor: pointer;
     }
+    .nav_btnMovies {
+      margin-left: 20%;
+      cursor: pointer;
+      color: white;
+      outline: none;
+      border: none;
+      font-size: 100%;
+      font-weight: 700;
+      border-radius: 0.2vw;
+      padding: 2rem;
+      background-color: transparent;
+      &:hover {
+        color: #ff914d;
+        transition: all 0.2s;
+      }
+    }
+    .nav_btnSeries {
+      margin-right: 65%;
+      cursor: pointer;
+      color: white;
+      outline: none;
+      border: none;
+      font-size: 100%;
+      font-weight: 700;
+      border-radius: 0.2vw;
+      padding: 2rem;
+      background-color: transparent;
+      &:hover {
+        color: #ff914d;
+        transition: all 0.2s;
+      }
+    }
     .nav_avatar {
       position: fixed;
       right: 0;
@@ -38,5 +70,5 @@
 }
 
 .nav_black {
-  background-color: #111;
+  background-color: black;
 }

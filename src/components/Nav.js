@@ -3,7 +3,7 @@ import filimi_banner from "../img/filimi_banner.png";
 import "../css/Nav.css";
 import LoginButton from "./LoginBtn";
 
-const Nav = () => {
+const Nav = (movies = true, series = false) => {
   const [show, handleShow] = useState(false);
 
   const transitionNavBar = () => {
@@ -23,6 +23,8 @@ const Nav = () => {
     <div className={`nav ${show && "nav_black"}`}>
       <div className="nav_content">
         <img className="nav_logo" src={filimi_banner} alt="nav_logo" />
+        <button className="nav_btnMovies">Movies</button>
+        <button className="nav_btnSeries">Series</button>
         <LoginButton />
       </div>
     </div>
