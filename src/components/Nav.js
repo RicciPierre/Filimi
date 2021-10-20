@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import filimi_banner from "../img/filimi_banner.png";
+import filimi_avatar from "../img/filimi_avatar.png";
 import "../css/Nav.css";
-import LoginButton from "./LoginBtn";
 
 const Nav = (movies = true, series = false) => {
   const [show, handleShow] = useState(false);
@@ -25,7 +25,11 @@ const Nav = (movies = true, series = false) => {
         <img className="nav_logo" src={filimi_banner} alt="nav_logo" />
         <button className="nav_btnMovies">Movies</button>
         <button className="nav_btnSeries">Series</button>
-        <LoginButton />
+        <img
+          className={`nav_avatar ${show && "nav_avatar_bg"}`}
+          src={filimi_avatar}
+          alt="nav_avatar"
+        />
       </div>
     </div>
   );

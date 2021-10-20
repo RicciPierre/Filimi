@@ -3,20 +3,10 @@ import ReactDOM from "react-dom";
 import "./css/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Auth0Provider
-      domain="dev-na-i88ly.eu.auth0.com"
-      clientId="EYnFEjvFgN01ODC6CgPtJ71HpGw7j9E6"
-      redirectUri={window.location.origin}
-      audience="https://dev-na-i88ly.eu.auth0.com/api/v2/"
-      scope="read:current_user update:current_user_metadata"
-    >
-      <App />
-    </Auth0Provider>
-    ,
+    <App />,
   </React.StrictMode>,
   document.getElementById("root")
 );
